@@ -10,7 +10,7 @@
 ## Project Description
 
 ## Contributors
-| Name        | Role      | GitHub ID and Profile                  | Tasks                                              | Scrum Board (Filtered Issues)                          | Commits |
+| Name        | Role      | GitHub ID and Profile                  | Tasks                                              | Scrum Board (Filtered Issues)         | Commits |
 |:------------|:-----------|:---------------------------------------|:--------------------------------------------------:|:------------------------------------:|:-------:|
 | Shreya Ahuja  | Design Manager |[@shreya-ahujaa](https://github.com/shreya-ahujaa)    | [Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/shreya-ahujaa) |[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Ashreya-ahujaa)| [Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=shreya-ahujaa)|
 | Vidhi Kulkarni  | Github Admin |[@VidhiKulkarni](https://github.com/VidhiKulkarni)| [Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/VidhiKulkarni) |[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3AVidhiKulkarni)| [Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=VidhiKulkarni)|
