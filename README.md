@@ -5,7 +5,7 @@
 1. [Project Description](https://github.com/VidhiKulkarni/teamlace#project-description)
 2. [Contributors](https://github.com/VidhiKulkarni/teamlace#contributors)
 3. [Individual GitHub Pages](https://github.com/VidhiKulkarni/teamlace#individual-github-pages)
-4. [Week 0]()
+4. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
 
 ## Project Description
 
@@ -23,5 +23,6 @@
 - [William Li]()
 - [Rebecca Su]()
 
-## Week 0: Plans, Teams, Jobs
+## Week 0
+### Plans, Teams, Jobs
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/1)
