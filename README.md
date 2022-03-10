@@ -7,7 +7,7 @@
 3. [Individual GitHub Pages](https://github.com/VidhiKulkarni/teamlace#individual-github-pages)
 4. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
 
-## [PBL Project](https://vidhikulkarni.github.io/teamlace/pbl.md)
+## [PBL Project](https://vidhikulkarni.github.io/teamlace/pbl)
 
 ## Contributors
 | Name        | Role      | GitHub ID and Profile                  | Tasks                                              | Scrum Board (Filtered Issues)         | Commits |
