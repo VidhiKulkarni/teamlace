@@ -16,6 +16,7 @@ in research competitions at MirCore, and learn about the fundamentals of compute
 
 We will be building various pages for the website such as the About page, Contact Us page, Join Page, Sign up Page, Login Page, etc. We will discuss with our project owner about what else she wants to include in the website.
 
+### Initial Requirements
 1. Home Page - Image Carousel, basic description of club
 2. About Page - Greater in-depth explanation of club and what they do
 3. Team Page - Introduce the Club Leadership
