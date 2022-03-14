@@ -36,7 +36,7 @@ We will be building various pages for the website such as the About page, Contac
 - [Shreya Ahuja]()
 - [Vidhi Kulkarni]()
 - [William Li]()
-- [Rebecca Su]()
+- [Rebecca Su](https://rebecca-123.github.io/rebecca-tri-3/)
 
 ## Week 0
 ### Plans, Teams, Jobs
