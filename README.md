@@ -8,7 +8,7 @@
 4. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
 
 ## Project Description
-Project Owner: Grace Wang (President of the GIDAS Club at DNHS)
+Project Owner: Grace Wang (President of the GIDAS Club at DNHS)<br>
 Contact Info: 
 
 This trimester we will be coding and deploying a website for the GIDAS club (Genes in Diseases and Symptoms). In the club, they learn about computational biology, participate
