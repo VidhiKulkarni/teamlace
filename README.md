@@ -6,6 +6,7 @@
 2. [Contributors](https://github.com/VidhiKulkarni/teamlace#contributors)
 3. [Individual GitHub Pages](https://github.com/VidhiKulkarni/teamlace#individual-github-pages)
 4. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
+5. [Week 1](https://github.com/VidhiKulkarni/teamlace#week-1)
 
 ## Project Description
 Project Owner: Grace Wang (President of the GIDAS Club at DNHS)<br>
@@ -43,3 +44,7 @@ We will be building various pages for the website such as the About page, Contac
 ## Week 0
 ### Plans, Teams, Jobs
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/1)
+
+## Week 1
+### Lists and Loops
+[Issue](https://github.com/VidhiKulkarni/teamlace/issues/2)
