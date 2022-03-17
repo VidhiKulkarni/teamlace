@@ -35,9 +35,9 @@ We will be building various pages for the website such as the About page, Contac
 |Rebecca Su|Scrum Master|[@Rebecca-123](https://github.com/Rebecca-123)| [Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/Rebecca-123)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Arebecca-123)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=Rebecca-123)|
 
 ## Individual GitHub Pages
-- [Shreya Ahuja]()
-- [Vidhi Kulkarni]()
-- [William Li]()
+- [Shreya Ahuja](https://github.com/shreya-ahujaa/shreya.individual)
+- [Vidhi Kulkarni](https://vidhikulkarni.github.io/individualrepo/)
+- [William Li](https://3ghin5.github.io/hatelace/)
 - [Rebecca Su](https://rebecca-123.github.io/rebecca-tri-3/)
 
 ## Week 0
