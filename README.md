@@ -1,5 +1,5 @@
 # AP CSP Tri 3 Period 5: Team Lace
-## [Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1), [Insights](https://github.com/VidhiKulkarni/teamlace/graphs/contributors)
+## [Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1), [Insights](https://github.com/VidhiKulkarni/teamlace/graphs/contributors), [Wireframe](https://www.canva.com/design/DAE7RRwpQjw/AeBSUtB2MMFA-djluBGogA/view?utm_content=DAE7RRwpQjw&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 
 ## Table of Contents
 1. [Project Description](https://github.com/VidhiKulkarni/teamlace#project-description)
