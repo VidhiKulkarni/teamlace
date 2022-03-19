@@ -1,3 +1,4 @@
+{% include navigation.html %}
 ## Contributors
 | Name | Role | GitHub ID and Profile | Tasks | Scrum Board (Filtered Issues) | Commits | GitHub Page |
 |----------------------------|--------|-----------------|-------|:-----------------------:|-----------|:-------:|
