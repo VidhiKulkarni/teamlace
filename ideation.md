@@ -1,5 +1,5 @@
+{% include navigation.html %}
 # Project Ideation
-
 ## Visuals and Design
 ### Wireframes
 <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
@@ -9,6 +9,5 @@
     src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAE7RRwpQjw&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
   </iframe>
 </div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAE7RRwpQjw&#x2F;view?utm_content=DAE7RRwpQjw&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">about us meet our team upcoming events donate sign-up login</a> by shreya ahuja
 
 ## Technical Plans
