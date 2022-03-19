@@ -1,3 +1,4 @@
+{% include navigation.html %}
 ## Project Description
 
 Project Owner: Grace Wang (President of the GIDAS Club at DNHS) <br>
