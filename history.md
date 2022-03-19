@@ -1,3 +1,4 @@
+{% include navigation.html %}
 # Project History
 
 ## Table of Contents
