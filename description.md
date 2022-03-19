@@ -1,6 +1,6 @@
 ## Project Description
 
-Project Owner: Grace Wang (President of the GIDAS Club at DNHS)
+Project Owner: Grace Wang (President of the GIDAS Club at DNHS) <br>
 Contact Info: (858)-688-4018
 
 This trimester we will be coding and deploying a website for the GIDAS club (Genes in Diseases and Symptoms). In the club, they learn about computational biology, participate in research competitions at MIRCORE, and learn about the fundamentals of computer science, biology, and statistics. They also conduct funding for disease research.
