@@ -4,9 +4,8 @@
 ## Table of Contents
 1. [Project Description](https://github.com/VidhiKulkarni/teamlace#project-description)
 2. [Contributors](https://github.com/VidhiKulkarni/teamlace#contributors)
-3. [Individual GitHub Pages](https://github.com/VidhiKulkarni/teamlace#individual-github-pages)
-4. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
-5. [Week 1](https://github.com/VidhiKulkarni/teamlace#week-1)
+3. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
+4. [Week 1](https://github.com/VidhiKulkarni/teamlace#week-1)
 
 ## Project Description
 Project Owner: Grace Wang (President of the GIDAS Club at DNHS)<br>
@@ -27,18 +26,12 @@ We will be building various pages for the website such as the About page, Contac
 
 
 ## Contributors
-| Name | Role | GitHub ID and Profile | Tasks | Scrum Board (Filtered Issues) | Commits |
-|-----------------------------|--------|-----------------|-------|-----------------------|---------|
-|Shreya Ahuja|Design Manager|[@shreya-ahujaa](https://github.com/shreya-ahujaa)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/shreya-ahujaa)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Ashreya-ahujaa)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=shreya-ahujaa)|
-|Vidhi Kulkarni|Github Admin|[@VidhiKulkarni](https://github.com/VidhiKulkarni)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/VidhiKulkarni)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3AVidhiKulkarni)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=VidhiKulkarni)|
-|William Li|Deployment Manager|[@3ghin5](https://github.com/3ghin5)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/3ghin5)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3A3ghin5)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=3ghin5)|
-|Rebecca Su|Scrum Master|[@Rebecca-123](https://github.com/Rebecca-123)| [Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/Rebecca-123)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Arebecca-123)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=Rebecca-123)|
-
-## Individual GitHub Pages
-- [Shreya Ahuja](https://github.com/shreya-ahujaa/shreya.individual)
-- [Vidhi Kulkarni](https://vidhikulkarni.github.io/individualrepo/)
-- [William Li](https://3ghin5.github.io/hatelace/)
-- [Rebecca Su](https://rebecca-123.github.io/rebecca-tri-3/)
+| Name | Role | GitHub ID and Profile | Tasks | Scrum Board (Filtered Issues) | Commits | GitHub Page |
+|----------------------------|--------|-----------------|-------|:-----------------------:|-----------|:-------:|
+|Shreya Ahuja|Design Manager|[@shreya-ahujaa](https://github.com/shreya-ahujaa)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/shreya-ahujaa)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Ashreya-ahujaa)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=shreya-ahujaa)|[Link](https://shreya-ahujaa.github.io/shreya.individual/)|
+|Vidhi Kulkarni|Github Admin|[@VidhiKulkarni](https://github.com/VidhiKulkarni)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/VidhiKulkarni)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3AVidhiKulkarni)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=VidhiKulkarni)|[Link](https://vidhikulkarni.github.io/individualrepo/)|
+|William Li|Deployment Manager|[@3ghin5](https://github.com/3ghin5)|[Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/3ghin5)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3A3ghin5)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=3ghin5)|[Link](https://3ghin5.github.io/hatelace/)|
+|Rebecca Su|Scrum Master|[@Rebecca-123](https://github.com/Rebecca-123)| [Tasks](https://github.com/VidhiKulkarni/teamlace/issues/assigned/Rebecca-123)|[Scrum Board](https://github.com/VidhiKulkarni/teamlace/projects/1?card_filter_query=assignee%3Arebecca-123)|[Commits](https://github.com/VidhiKulkarni/teamlace/commits?author=Rebecca-123)|[Link](https://rebecca-123.github.io/rebecca-tri-3/)|
 
 ## Week 0
 ### Plans, Teams, Jobs
