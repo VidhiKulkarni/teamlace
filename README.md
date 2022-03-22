@@ -40,3 +40,7 @@ We will be building various pages for the website such as the About page, Contac
 ## Week 1
 ### Lists and Loops
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/2)
+
+## Week 2
+### Classy Functions
+[Issue](https://github.com/VidhiKulkarni/teamlace/issues/17)
