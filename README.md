@@ -6,6 +6,7 @@
 2. [Contributors](https://github.com/VidhiKulkarni/teamlace#contributors)
 3. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
 4. [Week 1](https://github.com/VidhiKulkarni/teamlace#week-1)
+5. [Week 2](https://github.com/VidhiKulkarni/teamlace#week-2)
 
 ## Project Description
 Project Owner: Grace Wang (President of the GIDAS Club at DNHS)<br>
