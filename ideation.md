@@ -11,3 +11,4 @@
 </div>
 
 ## Technical Plans
+![image](/docs/assets/workflow.png)
