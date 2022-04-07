@@ -26,6 +26,12 @@ def crud():
     return render_template("crud.html", table=users_all())
 
 
+@app_crud.route('/test')
+@login_required
+def test():
+    return render_template("test.html")
+
+
 # Flask-Login directs unauthorised users to this unauthorized_handler
 @login_manager.unauthorized_handler
 def unauthorized():
