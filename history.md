@@ -5,10 +5,10 @@
 1. [Week 0](https://github.com/VidhiKulkarni/teamlace/edit/gh-pages/history.md#week-0-plans-teams-jobs)
 2. [Week 1](https://github.com/VidhiKulkarni/teamlace/edit/gh-pages/history.md#week-1-lists-and-loops)
 
-### Week 0: Plans, Teams, Jobs
+## Week 0: Plans, Teams, Jobs
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/1)
 
-### Week 1: Lists and Loops
+## Week 1: Lists and Loops
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/2)
 
 ### Initial Requirements (Weeks 0-1)
