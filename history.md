@@ -2,8 +2,8 @@
 # Project History
 
 ## Table of Contents
-1. [Week 0](https://github.com/VidhiKulkarni/teamlace/edit/gh-pages/history.md#week-0-plans-teams-jobs)
-2. [Week 1](https://github.com/VidhiKulkarni/teamlace/edit/gh-pages/history.md#week-1-lists-and-loops)
+1. [Week 0](https://vidhikulkarni.github.io/teamlace/history#week-0-plans-teams-jobs)
+2. [Week 1](https://vidhikulkarni.github.io/teamlace/history#week-1-lists-and-loops)
 
 ## Week 0: Plans, Teams, Jobs
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/1)
