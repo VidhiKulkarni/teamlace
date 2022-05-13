@@ -17,17 +17,17 @@ def index():
 
 
 @app.route("/donate")
-def index():
+def donate():
     return render_template("donate.html")
 
 
 @app.route("/team")
-def index():
+def team():
     return render_template("team.html")
 
 
 @app.route("/upcoming")
-def index():
+def upcoming():
     return render_template("upcoming.html")
 
 
