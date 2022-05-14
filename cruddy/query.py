@@ -94,15 +94,16 @@ def user_loader(user_id):
 
 
 # Authorise new user requires user_name, email, password
-def authorize(name, email, password, phone):
+def authorize(name, role, grade, email, password):
     if is_user(email, password):
         return False
     else:
         auth_user = Users(
             name=name,
+            role=role,
+            grade=grade,
             email=email,
-            password=password,
-            phone=phone  # this should be added to authorize.html
+            password=password # this should be added to authorize.html
         )
         # encrypt their password and add it to the auth_user object
         auth_user.create()
@@ -127,6 +128,8 @@ if __name__ == "__main__":
     # Expected success on Email and Password lookup
     name = "Thomas Edison"
     email = "tedison@example.com"
+    role = "member"
+    grade = "9"
     psw = "123toby"
     print(f"Check is_user with valid email and password {email}, {psw}", is_user(email, psw))
 
@@ -136,12 +139,14 @@ if __name__ == "__main__":
 
     """ Authorization Screen Sample Code"""
     # Expected failure as user exists
-    print(f"Check authorize with existing email and password: {name}, {psw}", authorize(name, email, psw))
+    print(f"Check authorize with existing email and password: {name}, {role}, {grade}, {psw}", authorize(name, role, grade, email, psw))
 
     # Expected success as user does not exist
     name1 = "Coco Puffs"
     email1 = "puffs@example.com"
-    print(f"Check authorize with new email and password: {name1}, {psw1}", authorize(name1, email1, psw1))
+    role1 = "president"
+    grade1 = 1
+    print(f"Check authorize with new email and password: {name1}, {role1}, {grade1}, {psw1}", authorize(name1, role1, grade1, email1, psw1))
 
     # Look at table
     print()

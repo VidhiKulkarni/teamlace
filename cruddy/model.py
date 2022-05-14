@@ -16,16 +16,18 @@ class Users(UserMixin, db.Model):
     # define the Users schema
     userID = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), unique=False, nullable=False)
+    role = db.Column(db.String(255), unique=False, nullable=False)
+    grade = db.Column(db.Integer, unique=False, nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
-    phone = db.Column(db.String(255), unique=False, nullable=False)
 
     # constructor of a User object, initializes of instance variables within object
-    def __init__(self, name, email, password, phone):
+    def __init__(self, name, role, grade, email, password):
         self.name = name
+        self.role = role
+        self.grade = grade
         self.email = email
         self.set_password(password)
-        self.phone = phone
 
     # CRUD create/add a new record to the table
     # returns self or None on error
@@ -45,22 +47,23 @@ class Users(UserMixin, db.Model):
         return {
             "userID": self.userID,
             "name": self.name,
+            "role": self.role,
+            "grade": self.grade,
             "email": self.email,
             "password": self.password,
-            "phone": self.phone,
             "query": "by_alc"  # This is for fun, a little watermark
         }
 
     # CRUD update: updates users name, password, phone
     # returns self
-    def update(self, name, password="", phone=""):
+    def update(self, name, role="", password=""):
         """only updates values with length"""
         if len(name) > 0:
             self.name = name
+        if len(role) > 0:
+            self.role = role
         if len(password) > 0:
             self.set_password(password)
-        if len(phone) > 0:
-            self.phone = phone
         db.session.commit()
         return self
 
@@ -96,15 +99,12 @@ def model_tester():
     print("--------------------------")
     db.create_all()
     """Tester data for table"""
-    u1 = Users(name='Thomas Edison', email='tedison@example.com', password='123toby', phone="1111111111")
-    u2 = Users(name='Nicholas Tesla', email='ntesla@example.com', password='123niko', phone="1111112222")
-    u3 = Users(name='Alexander Graham Bell', email='agbell@example.com', password='123lex', phone="1111113333")
-    u4 = Users(name='Eli Whitney', email='eliw@example.com', password='123whit', phone="1111114444")
-    u5 = Users(name='John Mortensen', email='jmort1021@gmail.com', password='123qwerty', phone="8587754956")
-    u6 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty', phone="8587754956")
+    u1 = Users(name='Grace Wang', role="President", grade="10", email="abc@xyz.org", password='grace')
+    u2 = Users(name='Vidhi Kulkarni', role="President", grade="10", email='vk@example.com', password='vidhi')
+    u3 = Users(name='John Mortensen', role="Member", grade="1000", email='jmort1021@gmail.com', password='123qwerty')
     # U7 intended to fail as duplicate key
-    u7 = Users(name='John Mortensen', email='jmort1021@yahoo.com', password='123qwerty', phone="8586791294")
-    table = [u1, u2, u3, u4, u5, u6, u7]
+    u4 = Users(name='John Mortensen', role="Member", grade="1000", email='jmort1021@gmail.com', password='123qwerty')
+    table = [u1, u2, u3, u4]
     for row in table:
         try:
             db.session.add(row)
