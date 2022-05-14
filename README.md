@@ -7,6 +7,7 @@
 3. [Week 0](https://github.com/VidhiKulkarni/teamlace#week-0)
 4. [Week 1](https://github.com/VidhiKulkarni/teamlace#week-1)
 5. [Week 2](https://github.com/VidhiKulkarni/teamlace#week-2)
+6. [PBL Week 1](https://github.com/VidhiKulkarni/teamlace#pbl-week-1)
 
 ## Project Description
 Project Owner: Grace Wang (President of the GIDAS Club at DNHS)<br>
@@ -45,3 +46,6 @@ We will be building various pages for the website such as the About page, Contac
 ## Week 2
 ### Classy Functions
 [Issue](https://github.com/VidhiKulkarni/teamlace/issues/17)
+
+## PBL Week 1
+[Issue](https://github.com/VidhiKulkarni/teamlace/issues/37)
