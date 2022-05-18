@@ -33,9 +33,9 @@ def upcoming():
     return render_template("upcoming.html")
 
 
-@app.route("/contactus")
-def contactus():
-    return render_template("contactus.html")
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
 
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
-
-
 <!DOCTYPE html>
-{% include "layout.html" %}
-<body style="font-family: Baskerville;"</body>
+{% extends "layout.html" %}
 
+{% block meta %}
+    <title>Login</title>
+{% endblock %}
 
 {% block content %}
 
@@ -13,9 +13,9 @@
         </header>
     </div>
 
-    <div class="container py-4 text-light" style="background-color: #4A9BAB">
+    <div class="container py-4 text-light bg-primary rounded-3">
 
-        <div class="container py-4" style="background-color: #CBEBF1">
+        <div class="container py-4 bg-secondary rounded-3">
             <div class="p-5 mb-4 bg-light text-dark rounded-3">
                 <form method="POST" ID="login" action={{url_for('crud.crud_login')}}>
                     <table>
