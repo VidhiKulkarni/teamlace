@@ -3,10 +3,15 @@
 
 {% block head %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock %}
+
+{% block colors %}
+    <link rel="stylesheet" type="text/css" href={{  url_for("static", filename="scss/custom.css", version='208') }}>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 {% endblock %}
 
 {% block content %}
+    <center><div class="container py-4">DNHS Genes in Diseases and Symptoms</div></center>
     <div class="w3-content w3-display-container">
         <!-- w3-animate-fading class allows image to fade in-->
        <center><img alt="Mitochondria" class="BioObj w3-animate-fading" src="/static/assets/mitochondria.png" style="height: 300px"></center> 
@@ -46,4 +51,7 @@
             x[slideIndex-1].style.display = "block";
         }
     </script>
+
+     <center><p>We are the GIDAS club (Genes in Diseases and Symptoms) at DNHS. In the club, we learn about computational biology, participate in research competitions at MIRCORE, and learn about the fundamentals of computer science, biology, and statistics. We also conduct funding for disease research.</p></center>
+
 {% endblock %}
