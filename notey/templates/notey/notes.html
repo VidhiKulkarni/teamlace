@@ -13,9 +13,27 @@
     </div>
     <div class="container py-4 text-light bg-primary rounded-3">
         <div class="container bg-secondary py-4 rounded-3">
+
             <div class="p-5 mb-4 bg-light text-dark rounded-3">
                 <h2>Notes for {{ user.name }}</h2>
                 <hr>
+                <!--Notes output area, Jinja lines iterate through notes,
+                    note.note is html converted from markdown -->
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                        {% for note in notes %}
+                        <tr>
+                            <td>{{ note['id'] }}</td>
+                            <td>{{ note.note | safe }}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="p-5 mb-4 bg-light text-dark rounded-3">
                 <!--Notes input form, textarea supports multiple lines of input  -->
                 <form method="POST" ID="create" action={{url_for('notes.create')}}>
                     <table class="table">
@@ -32,22 +50,66 @@
                         </tbody>
                     </table>
                 </form>
-                <hr>
-                <!--Notes output area, Jinja lines iterate through notes,
-                    note.note is html converted from markdown -->
-                <div class="table-responsive">
+            </div>
+
+
+            <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                <!--Notes input form, textarea supports multiple lines of input  -->
+                <form method="POST" ID="update" action={{url_for('notes.update')}}>
                     <table class="table">
-                        <tbody>
-                        {% for note in notes %}
+                        <thead>
                         <tr>
-                            <td>{{ note.note | safe }}</td>
+                            <th><label for="update_noteid">ID</label></th>
+                            <th><label for="update_note">Update a note:</label></th>
                         </tr>
-                        {% endfor %}
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <select name="noteid" id="update_noteid">
+                                    <optgroup label="Note ID">
+                                        {% for note in notes %}
+                                            <option label="{{ note['id'] }}">{{ note['id'] }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                </select>
+                            </td>
+                            <td><textarea rows = "5" cols = "100%" name = "notes" id="update_note" required></textarea></td>
+                            <td><input type="submit" value="Update" ></td>
+                        </tr>
                         </tbody>
                     </table>
-                </div>
-
+                </form>
             </div>
+
+            <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                <!--Notes input form, textarea supports multiple lines of input  -->
+                <form method="POST" ID="delete" action={{url_for('notes.delete')}}>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><label for="delete_noteid">ID</label></th>
+                            <th><label for="delete_note">Delete a note:</label></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <select name="noteid" id="delete_noteid">
+                                    <optgroup label="Note ID">
+                                        {% for note in notes %}
+                                            <option label="{{ note['id'] }}">{{ note['id'] }}</option>
+                                        {% endfor %}
+                                    </optgroup>
+                                </select>
+                            </td>
+                            <td><input type="submit" value="Delete" ></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+
         </div>
     </div>
 

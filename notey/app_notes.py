@@ -5,6 +5,8 @@ from cruddy.query import user_by_id
 from cruddy.model import Notes
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
+from notey.notes_query import notes_by_id
+
 app_notes = Blueprint('notes', __name__,
                       url_prefix='/notes',
                       template_folder='templates/notey/',
@@ -43,8 +45,29 @@ def create():
     if request.form:
         # construct a Notes object
         note_object = Notes(
-            request.form.get("notes"), current_user.userID
+            request.form.get("noteid"), request.form.get("notes"), current_user.userID
         )
         # create a record in the Notes table with the Notes object
         note_object.create()
+    return redirect(url_for('notes.notes'))
+
+
+@app_notes.route('/update/', methods=["POST"])
+def update():
+    if request.form:
+        id = request.form.get("noteid")
+        note = request.form.get("notes")
+        no = notes_by_id(id)
+        if no is not None:
+            no.update(note)
+    return redirect(url_for('notes.notes'))
+
+
+@app_notes.route('/delete/', methods=["POST"])
+def delete():
+    if request.form:
+        id = request.form.get("noteid")
+        no = notes_by_id(id)
+        if no is not None:
+            no.delete()
     return redirect(url_for('notes.notes'))
