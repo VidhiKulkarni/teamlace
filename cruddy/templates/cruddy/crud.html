@@ -23,6 +23,7 @@
             <span class="fs-4"><a href={{ url_for('crud.crud_logout') }}>Logout</a></span>
         </header>
     </div>
+
     <div class="container py-4 text-light bg-primary rounded-3">
 
         <div class="container bg-secondary py-4 rounded-3">
@@ -67,10 +68,9 @@
                 </div>
             </div>
 
-        </div>
 
 
-        <div class="container bg-secondary py-4 rounded-3">
+
             <div class="p-5 mb-4 bg-light text-dark rounded-3">
                 <h2>Add a New Member</h2>
                 <form method="POST" ID="create" action={{url_for('crud.create')}} >
@@ -98,9 +98,6 @@
                 </form>
             </div>
 
-        </div>
-
-        <div class="container bg-secondary py-4 rounded-3">
 
             <div class="row mb-4 bg-light text-dark rounded-3">
 
@@ -180,8 +177,6 @@
                 </div>
 
             </div>
-
-        </div>
 
     </div>
 {% endblock %}
