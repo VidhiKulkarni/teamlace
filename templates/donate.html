@@ -1,9 +1,38 @@
-<!DOCTYPE html>
 {% extends "layout.html" %}
 
-{% block meta %}
-    <title>Donate</title>
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+</style>
 {% endblock %}
 
 {% block content %}
+<script>
+    // first image has index of 1
+    let slideIndex = 1;
+    // display image of specified index
+    showDivs(slideIndex);
+
+    // plusDivs will change slideIndex by -1 or 1 depending on which button was pressed
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        // all images are set equal to x
+        let x = document.getElementsByClassName("BioObj");
+        if (n > x.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = x.length}
+
+        let i;
+        // all images not displayed
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        // image of given index will be displayed
+        x[slideIndex-1].style.display = "block";
+    }
+</script>
+
 {% endblock %}
