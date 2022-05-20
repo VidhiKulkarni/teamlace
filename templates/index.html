@@ -11,17 +11,18 @@
 {% endblock %}
 
 {% block content %}
-    <center><div class="container py-4">DNHS Genes in Diseases and Symptoms</div></center>
+    <div class="text-center fs-1 container-fluid m-4">DNHS Genes in Diseases and Symptoms</div>
     <div class="w3-content w3-display-container">
         <!-- w3-animate-fading class allows image to fade in-->
-       <center><img alt="Mitochondria" class="BioObj w3-animate-fading" src="/static/assets/mitochondria.png" style="height: 300px"></center> 
-      <center><img alt="Microscope" class="BioObj w3-animate-fading" src="/static/assets/microscope.png" style="height: 300px"></center>
-      <center><img alt="DNA" class="BioObj w3-animate-fading" src="/static/assets/dna.png" style="height: 300px"></center>
-       <center><img alt="Virus" class="BioObj w3-animate-fading" src="/static/assets/virus.png" style="height: 300px"></center>
+        <center><img alt="Mitochondria" class="BioObj w3-animate-fading" src="/static/assets/mitochondria.png" style="height: 300px"></center>
+        <center><img alt="Microscope" class="BioObj w3-animate-fading" src="/static/assets/microscope.png" style="height: 300px"></center>
+        <center><img alt="DNA" class="BioObj w3-animate-fading" src="/static/assets/dna.png" style="height: 300px"></center>
+        <center><img alt="Virus" class="BioObj w3-animate-fading" src="/static/assets/virus.png" style="height: 300px"></center>
         <!-- clicking right or left button will call plusDivs function-->
-        <center><button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <!-- &#10094 and &#10095 are left and right-->
-        <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        <center>
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <!-- &#10094 and &#10095 are left and right-->
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
         </center>
     </div>
 
@@ -52,6 +53,6 @@
         }
     </script>
 
-     <center><p>We are the GIDAS club (Genes in Diseases and Symptoms) at DNHS. In the club, we learn about computational biology, participate in research competitions at MIRCORE, and learn about the fundamentals of computer science, biology, and statistics. We also conduct funding for disease research.</p></center>
+    <div class="text-center fs-6 container-fluid p-5">We are the GIDAS club (Genes in Diseases and Symptoms) at Del Norte High School. In the club, we learn about computational biology, participate in research competitions at MIRCORE, and learn about the fundamentals of computer science, biology, and statistics. We also conduct funding for disease research.</div>
 
 {% endblock %}

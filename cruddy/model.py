@@ -1,10 +1,4 @@
 """ database dependencies to support Users db examples """
-from __init__ import db
-from sqlalchemy.exc import IntegrityError
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
-
-""" database dependencies to support Users db examples """
 from random import randrange
 
 from __init__ import db
@@ -24,7 +18,8 @@ class Notes(db.Model):
     userID = db.Column(db.Integer, db.ForeignKey('users.userID'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, note, userID):
+    def __init__(self, id, note, userID):
+        self.id = id
         self.note = note
         self.userID = userID
 
@@ -53,6 +48,18 @@ class Notes(db.Model):
             "note": self.note,
             "userID": self.userID
         }
+
+    def update(self, note):
+        """only updates values with length"""
+        if len(note) > 0:
+            self.note = note
+        db.session.commit()
+        return self
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+        return None
 
 
 # Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along
