@@ -57,7 +57,7 @@ def crud_login():
 # logout and redirect to crud page (unauthorized so will actually display login)
 def crud_logout():
     logout()
-    return redirect(url_for('crud.crud'))
+    return redirect(url_for('crud.crud_login'))
 
 
 @app_crud.route('/authorize/', methods=["GET", "POST"])
