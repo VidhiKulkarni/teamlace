@@ -15,85 +15,109 @@
     <div class="container-fluid">
         <div class="btn-group">
             <nav class="navbar navbar-expand-lg navbar-light">
-
-    <div class="logo-image">
-                <img src="/static/assets/GIDASlogo.png" class="img-fluid" size>
-        </div>
-            <a class="navbar-brand">DNHS GIDAS</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('index') }}">Home<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('about') }}">About Us<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('team') }}">Meet Our Team<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('upcoming') }}">Events<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('donate') }}">Donate<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('crud.crud') }}">Club Members<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('notes.notes') }}">Notes<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('crud.crud_login') }}">Login<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('crud.crud_authorize') }}">Sign Up<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse" id="navbarHome">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('contact') }}">Contact Us<span class="sr-only"></span></a>
-                    </li>
-                </ul>
-            </div>
+                <div class="logo-image">
+                    <img src="/static/assets/GIDASlogo.png" class="img-fluid" size alt="">
+                </div>
+                <a class="navbar-brand">DNHS GIDAS</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('index') }}">Home<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('about') }}">About Us<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('team') }}">Meet Our Team<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('upcoming') }}">Events<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('content.content') }}">Gallery<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('donate') }}">Donate<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarHome">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url_for('contact') }}">Contact Us<span class="sr-only"></span></a>
+                        </li>
+                    </ul>
+                </div>
+                {% if current_user.is_authenticated %}
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('crud.crud') }}">Club Members<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('notes.notes') }}">Notes<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link">{{ current_user.name }}<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('crud.crud_logout') }}">Logout<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                {% else %}
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('crud.crud_login') }}">Login<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarHome">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url_for('crud.crud_authorize') }}">Sign Up<span class="sr-only"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endif %}
+            </nav>
         </div>
     </div>
 </nav>

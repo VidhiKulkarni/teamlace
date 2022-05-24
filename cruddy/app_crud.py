@@ -47,7 +47,7 @@ def crud_login():
         email = request.form.get("email")
         password = request.form.get("password")
         if login(email, password):  # zero index [0] used as email is a tuple
-            return redirect(url_for('crud.crud'))
+            return redirect(url_for('index'))
 
     # if not logged in, show the login page
     return render_template("login.html")
@@ -57,7 +57,7 @@ def crud_login():
 # logout and redirect to crud page (unauthorized so will actually display login)
 def crud_logout():
     logout()
-    return redirect(url_for('crud.crud'))
+    return redirect(url_for('crud.crud_login'))
 
 
 @app_crud.route('/authorize/', methods=["GET", "POST"])
