@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{% block meta %}
+    <title>Practice Quiz</title>
+{% endblock %}
+
+{% block content %}
+<h2>Practice for an Upcoming Quiz</h2>
+    <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
+
+
+<button onClick="window.location.reload();">Refresh</button>
+<p id="demo"></p>
+<script>
+    function rand_quest(items)
+    {
+
+        return items[Math.floor(Math.random()*items.length)];
+
+    }
+    var questions = [
+        "What is bioinformatics?",
+        "How do you make a PPI plot on STRINGDB?",
+        "What is the central dogma?",
+        "Describe the steps from DNA to a protein.",
+        "What is the UCSC Genome Browser?",
+        "How are KEGG Pathways used in research?",
+    ];
+    document.getElementById("demo").innerHTML = rand_quest(questions)
+</script>
+</body>
+</html>
+{% endblock %}
