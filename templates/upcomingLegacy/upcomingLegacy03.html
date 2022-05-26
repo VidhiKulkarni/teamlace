@@ -32,7 +32,7 @@
 
     // Authorization scopes required by the API; multiple scopes can be
     // included, separated by spaces.
-    const SCOPES = 'https://www.googleapis.com/auth/calendar';
+    const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
 
     let tokenClient;
     let gapiInited = false;
@@ -129,7 +129,7 @@
         let response;
         try {
             const request = {
-                'calendarId': 'c3blo90u1m1escub076qk0amjo@group.calendar.google.com',
+                'calendarId': 'primary',
                 'timeMin': (new Date()).toISOString(),
                 'showDeleted': false,
                 'singleEvents': true,
@@ -156,31 +156,31 @@
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+<!-- API Key: AIzaSyCtgS-FuV-qUTOhwUwKfaD7oLW-PyYR0iU -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
-function setStartTime(){
-    let year = document.getElementById('startyear').value
-    let month = document.getElementById('startmonth').value
-    let day = document.getElementById('startday').value
-    let hour = document.getElementById('starthour').value
-    let minute = document.getElementById('startminute').value
-    let second = document.getElementById('startsecond').value
-    return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
-}
-function setEndTime(){
-    let year = document.getElementById('endyear').value
-    let month = document.getElementById('endmonth').value
-    let day = document.getElementById('endday').value
-    let hour = document.getElementById('endhour').value
-    let minute = document.getElementById('endminute').value
-    let second = document.getElementById('endsecond').value
-    return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
-}
+    function setStartTime(){
+        let year = document.getElementById('startyear').value
+        let month = document.getElementById('startmonth').value
+        let day = document.getElementById('startday').value
+        let hour = document.getElementById('starthour').value
+        let minute = document.getElementById('startminute').value
+        let second = document.getElementById('startsecond').value
+        return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
+    }
+    function setEndTime(){
+        let year = document.getElementById('endyear').value
+        let month = document.getElementById('endmonth').value
+        let day = document.getElementById('endday').value
+        let hour = document.getElementById('endhour').value
+        let minute = document.getElementById('endminute').value
+        let second = document.getElementById('endsecond').value
+        return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
+    }
     // Refer to the JavaScript quickstart on how to setup the environment:
     // https://developers.google.com/calendar/quickstart/js
     // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
     // stored credentials.
-
 
 
     /**
@@ -192,43 +192,54 @@ function setEndTime(){
     function authenticate() {
         return gapi.auth2.getAuthInstance()
             .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"})
-            .then(function() { console.log("Sign-in successful"); },
-                function(err) { console.error("Error signing in", err); });
+            .then(function () {
+                    console.log("Sign-in successful");
+                },
+                function (err) {
+                    console.error("Error signing in", err);
+                });
     }
+
     function loadClient() {
         gapi.client.setApiKey("AIzaSyCtgS-FuV-qUTOhwUwKfaD7oLW-PyYR0iU");
         return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
-            .then(function() { console.log("GAPI client loaded for API"); },
-                function(err) { console.error("Error loading GAPI client for API", err); });
+            .then(function () {
+                    console.log("GAPI client loaded for API");
+                },
+                function (err) {
+                    console.error("Error loading GAPI client for API", err);
+                });
     }
+
     // Make sure the client is loaded and sign-in is complete before calling this method.
     function execute() {
         return gapi.client.calendar.events.insert({
-            "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
             "resource": {
                 "end": {
-                    "dateTime": "2022-05-28T09:30:00",
+                    "dateTime": setEndTime(),
                     "timeZone": "America/Los_Angeles"
                 },
                 "start": {
-                    "dateTime": "2022-05-28T09:00:00",
+                    "dateTime": setStartTime(),
                     "timeZone": "America/Los_Angeles"
                 }
             }
         })
-            .then(function(response) {
+            .then(function (response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response", response);
                 },
-                function(err) { console.error("Execute error", err); });
+                function (err) {
+                    console.error("Execute error", err);
+                });
     }
-    gapi.load("client:auth2", function() {
+
+    gapi.load("client:auth2", function () {
         gapi.auth2.init({client_id: "893453603783-bpsno84rauqug3u8tsdsq14f85amng83.apps.googleusercontent.com"});
     });
 </script>
-<button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
-
+<button onClick="authenticate().then(loadClient)">authorize and load</button>
+<button onClick="execute()">execute</button>
 
 
 
@@ -256,24 +267,24 @@ var event = {
             {'email': 'sbrin@example.com'}
         ],
         */
-     /*
-        'reminders': {
-            'useDefault': false,
-            'overrides': [
-                {'method': 'email', 'minutes': 24 * 60},
-                {'method': 'popup', 'minutes': 10}
-            ]
-        }
-    };
+    /*
+       'reminders': {
+           'useDefault': false,
+           'overrides': [
+               {'method': 'email', 'minutes': 24 * 60},
+               {'method': 'popup', 'minutes': 10}
+           ]
+       }
+   };
 
-    var request = gapi.client.calendar.events.insert({
-        'calendarId': 'primary',
-        'resource': event
-    });
+   var request = gapi.client.calendar.events.insert({
+       'calendarId': 'primary',
+       'resource': event
+   });
 
-    request.execute(function(event) {
-        appendPre('Event created: ' + event.htmlLink);
-    });
+   request.execute(function(event) {
+       appendPre('Event created: ' + event.htmlLink);
+   });
 function addEvent(){
 
 }
@@ -286,27 +297,29 @@ function deleteEvent() {
 */
 
 </script>
+
+<input id="eventName" style="width: 100px; height: auto" placeholder="name of event">
+<input id="eventDesc" style="width: 500px; height: 350px" placeholder="description of event">
+<input id="eventLocation" style="width: 500px; height: auto" placeholder="location of event">
+
 <input id="startyear" style="width: 100px; height: auto" placeholder="year">
-<input id="startmonth" style="width: 100px; height: auto" placeholder="month">
-<input id="startday" style="width: 100px; height: auto" placeholder="day">
+<input id="startmonth" style="width: 500px; height: 350px" placeholder="month">
+<input id="startday" style="width: 500px; height: auto" placeholder="day">
 <input id="starthour" style="width: 100px; height: auto" placeholder="hour">
-<input id="startminute" style="width: 100px; height: auto" placeholder="minute">
-<input id="startsecond" style="width: 100px; height: auto" placeholder="second">
+<input id="startminute" style="width: 500px; height: 350px" placeholder="minute">
+<input id="startsecond" style="width: 500px; height: auto" placeholder="second">
+
+<input id="endyear" style="width: 100px; height: auto" placeholder="year">
+<input id="endmonth" style="width: 100px; height: 350px" placeholder="month">
+<input id="endday" style="width: 500px; height: auto" placeholder="day">
+<input id="endhour" style="width: 100px; height: auto" placeholder="hour">
+<input id="endminute" style="width: 500px; height: 350px" placeholder="minute">
+<input id="endsecond" style="width: 500px; height: auto" placeholder="second">
+
+<button id="addEventButton" style="width: 75px; height: 30px" onclick="addEvent()"> Create Event </button>
+<button id="editEventButton" style="width: 75px; height: 30px" onclick="editEvent()"> Edit Event </button>
+<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="deleteEvent()"> Delete Event </button>
+<button onclick="setStartTime()" style="width: 75px; height: 30px"> set time and date of event start </button>
+<button onclick="setEndTime()" style="width: 75px; height: 30px"> set time and date of event end </button>
 <br>
-<input id="endyear" style="width: 100px; height: auto" placeholder="end year">
-<input id="endmonth" style="width: 100px; height: auto" placeholder="end month">
-<input id="endday" style="width: 100px; height: auto" placeholder="end day">
-<input id="endhour" style="width: 100px; height: auto" placeholder="end hour">
-<input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
-<input id="endsecond" style="width: 100px; height: auto" placeholder="end second">
-<br>
-<button id="addEventButton" hidden style="width: 75px; height: 30px" onclick="addEvent()"> Create Event </button>
-<button id="editEventButton" hidden style="width: 75px; height: 30px" onclick="editEvent()"> Edit Event </button>
-<button id="deleteEventButton" hidden style="width: 75px; height: 30px" onclick="deleteEvent()"> Delete Event </button>
-<button onclick="setStartTime()" hidden style="width: 75px; height: 30px"> set time and date of event start </button>
-<button onclick="setEndTime()" hidden style="width: 75px; height: 30px"> set time and date of event end </button>
-<br>
-<input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
-<input id="eventDesc" hidden style="width: 500px; height: 350px" placeholder="description of event">
-<input id="eventLocation" hidden style="width: 500px; height: auto" placeholder="location of event">
 {% endblock %}
