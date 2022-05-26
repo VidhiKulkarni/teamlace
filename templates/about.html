@@ -226,12 +226,45 @@
     <h2>Search</h2>
     <input type="text" id="Input" onkeyup="searchSummer()" placeholder="Search for GIDAS Resources..." title="find summer">
     <ul id="UL">
-        <li><a href="#">Meeting Notes 1</a></li>
-        <li><a href="#">Week 2</a></li>
-        <li><a href="#">GIDAS Notes 3</a></li>
-        <li><a href="#">Week 4</a></li>
+        <li><a href="https://docs.google.com/document/d/15xRtHj-WfW8pBKFhB3Z6HOBMaE2roISm7nBJvHZ2SIg/edit?usp=sharing">Meeting Notes 1</a></li>
+        <li><a href="https://docs.google.com/document/d/15xRtHj-WfW8pBKFhB3Z6HOBMaE2roISm7nBJvHZ2SIg/edit?usp=sharing">Week 2</a></li>
+        <li><a href="https://docs.google.com/document/d/15xRtHj-WfW8pBKFhB3Z6HOBMaE2roISm7nBJvHZ2SIg/edit?usp=sharing">GIDAS Notes 3</a></li>
+        <li><a href="https://docs.google.com/document/d/15xRtHj-WfW8pBKFhB3Z6HOBMaE2roISm7nBJvHZ2SIg/edit?usp=sharing">Week 4</a></li>
     </ul>
 
     </body>
+    <title>Dark Mode</title>
+
+    <style>
+        body{
+            padding:0% 3% 10% 3%;
+            text-align:center;
+        }
+        h1{
+            color: #32a852;
+            margin-top:30px;
+        }
+
+        button{
+            cursor: pointer;
+            border: 1px solid #555;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+    </style>
+    </head>
+    <button onclick="myFunction()">Switch mode</button>
+
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark");
+        }
+    </script>
 {% endblock %}
 </html>
