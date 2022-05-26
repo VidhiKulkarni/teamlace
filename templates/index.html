@@ -25,128 +25,6 @@
             <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
         </center>
     </div>
-    <head>
-        <style>
-            .fa {
-                padding: 20px;
-                font-size: 30px;
-                width: 50px;
-                text-align: center;
-                text-decoration: none;
-                margin: 5px 2px;
-            }
-
-            .fa:hover {
-                opacity: 0.7;
-            }
-
-            .fa-facebook {
-                background: #3B5998;
-                color: white;
-            }
-
-            .fa-twitter {
-                background: #55ACEE;
-                color: white;
-            }
-
-            .fa-google {
-                background: #dd4b39;
-                color: white;
-            }
-
-            .fa-linkedin {
-                background: #007bb5;
-                color: white;
-            }
-
-            .fa-youtube {
-                background: #bb0000;
-                color: white;
-            }
-
-            .fa-instagram {
-                background: #125688;
-                color: white;
-            }
-
-            .fa-pinterest {
-                background: #cb2027;
-                color: white;
-            }
-
-            .fa-snapchat-ghost {
-                background: #fffc00;
-                color: white;
-                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-            }
-
-            .fa-skype {
-                background: #00aff0;
-                color: white;
-            }
-
-            .fa-android {
-                background: #a4c639;
-                color: white;
-            }
-
-            .fa-dribbble {
-                background: #ea4c89;
-                color: white;
-            }
-
-            .fa-vimeo {
-                background: #45bbff;
-                color: white;
-            }
-
-            .fa-tumblr {
-                background: #2c4762;
-                color: white;
-            }
-
-            .fa-vine {
-                background: #00b489;
-                color: white;
-            }
-
-            .fa-foursquare {
-                background: #45bbff;
-                color: white;
-            }
-
-            .fa-stumbleupon {
-                background: #eb4924;
-                color: white;
-            }
-
-            .fa-flickr {
-                background: #f40083;
-                color: white;
-            }
-
-            .fa-yahoo {
-                background: #430297;
-                color: white;
-            }
-
-            .fa-soundcloud {
-                background: #ff5500;
-                color: white;
-            }
-
-            .fa-reddit {
-                background: #ff5700;
-                color: white;
-            }
-
-            .fa-rss {
-                background: #ff6600;
-                color: white;
-            }
-        </style>
-    </head>
     <script>
         // first image has index of 1
         let slideIndex = 1;
@@ -173,36 +51,38 @@
             x[slideIndex-1].style.display = "block";
         }
     </script>
+    <title>Dark Mode</title>
 
-    <div class="text-center fs-6 container-fluid p-5">We are the GIDAS club (Genes in Diseases and Symptoms) at Del Norte High School. In the club, we learn about computational biology, participate in research competitions at MIRCORE, and learn about the fundamentals of computer science, biology, and statistics. We also conduct funding for disease research.</div>
-<footer id="footer" class="bg-primary text-white d-flex-column text-center">
-    <hr class="mt-0">
-    <!--Social buttons-->
-    <div class="text-center">
-        <h4>You can find us at</h4>
-        <ul class="list-unstyled list-inline">
-            <li class="list-inline-item">
-                <a href="#!" class="sbtn btn-large mx-1" title="Facebook">
-                    <i class="fab fa-facebook fa-2x"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#!" class="sbtn btn-large mx-1" title="Linkedin">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#!" class="sbtn btn-large mx-1" title="Twitter">
-                    <i class="fab fa-twitter fa-2x"></i>
-                </a>
-            </li>
-            <li class="list-inline-item">
-                <a href="#!" class="sbtn btn-large mx-1" title="Youtube">
-                    <i class="fab fa-youtube fa-2x"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <!--/.Social buttons-->
-</footer>
+    <style>
+        body{
+            padding:0% 3% 10% 3%;
+            text-align:center;
+        }
+        h1{
+            color: #32a852;
+            margin-top:30px;
+        }
+
+        button{
+            cursor: pointer;
+            border: 1px solid #555;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+    </style>
+    </head>
+    <button onclick="myFunction()">Switch mode</button>
+
+    <script>
+        function myFunction() {
+            var element = document.body;
+            element.classList.toggle("dark");
+        }
+    </script>
+
 {% endblock %}
