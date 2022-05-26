@@ -35,6 +35,11 @@ def upcoming():
     return render_template("upcoming.html")
 
 
+@app.route("/GCAPITHF")
+def GCAPITHF():
+    return render_template("GoogleCalendarAPI_test_html_file.html")
+
+
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
