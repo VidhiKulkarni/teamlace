@@ -35,6 +35,20 @@ def upcoming():
     return render_template("upcoming.html")
 
 
+@app.route("/slides")
+def slides():
+    return render_template("slides.html")
+
+
+@app.route("/darkmode")
+def darkmode():
+    return render_template("darkmode.html")
+
+@app.route("/practicequiz")
+def practicequiz():
+    return render_template("practicequiz.html")
+
+
 @app.route("/GCAPITHF")
 def GCAPITHF():
     return render_template("GoogleCalendarAPI_test_html_file.html")
