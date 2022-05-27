@@ -13,7 +13,8 @@
 <p>Google Calendar API Quickstart</p>
 
 <!--Add buttons to initiate auth sequence and sign out-->
-<button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+<button id="authorize_button" style="height: 0; width: 0" onclick="handleAuthClick()"></button>
+
 <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
 <pre id="content" style="white-space: pre-wrap;"></pre>
@@ -153,6 +154,11 @@
             'Events:\n');
         document.getElementById('content').innerText = output;
     }
+
+    window.onload = function() {
+        handleAuthClick();
+
+    };
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
@@ -240,7 +246,9 @@
         gapi.auth2.init({client_id: "893453603783-bpsno84rauqug3u8tsdsq14f85amng83.apps.googleusercontent.com"});
     });
 </script>
-<button onclick="authenticate().then(loadClient).then(execute)">create event</button>
+<button onclick="authenticate().then(loadClient)">authorize and load</button>
+<button onclick="execute()">execute</button>
+<button onclick="authenticate().then(loadClient); execute()">authorize and load and execute</button>
 
 
 
@@ -303,22 +311,18 @@ function deleteEvent() {
 <input id="startday" style="width: 100px; height: auto" placeholder="day">
 <input id="starthour" style="width: 100px; height: auto" placeholder="hour">
 <input id="startminute" style="width: 100px; height: auto" placeholder="minute">
-<input id="startsecond" style="width: 100px; height: auto" placeholder="second">
 <br>
 <input id="endyear" style="width: 100px; height: auto" placeholder="end year">
 <input id="endmonth" style="width: 100px; height: auto" placeholder="end month">
 <input id="endday" style="width: 100px; height: auto" placeholder="end day">
 <input id="endhour" style="width: 100px; height: auto" placeholder="end hour">
 <input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
-<input id="endsecond" style="width: 100px; height: auto" placeholder="end second">
 <br>
-<button id="addEventButton" hidden style="width: 75px; height: 30px" onclick="addEvent()"> Create Event </button>
 <button id="editEventButton" hidden style="width: 75px; height: 30px" onclick="editEvent()"> Edit Event </button>
 <button id="deleteEventButton" hidden style="width: 75px; height: 30px" onclick="deleteEvent()"> Delete Event </button>
-<button onclick="setStartTime()" hidden style="width: 75px; height: 30px"> set time and date of event start </button>
-<button onclick="setEndTime()" hidden style="width: 75px; height: 30px"> set time and date of event end </button>
 <br>
 <input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
 <input id="eventDesc" hidden style="width: 500px; height: 350px" placeholder="description of event">
 <input id="eventLocation" hidden style="width: 500px; height: auto" placeholder="location of event">
 {% endblock %}
+
