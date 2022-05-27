@@ -55,4 +55,28 @@
                                 </div>
                             </div>
                         </div>
+                        <title>Dark Mode</title>
+
+                        <style>
+                            button{
+                                cursor: pointer;
+                                border: 1px solid #555;
+                                text-align: center;
+                                padding: 5px;
+                                margin-left: 8px;
+                            }
+                            .dark{
+                                background-color: #222;
+                                color: #e6e6e6;
+                            }
+                        </style>
+                        </head>
+                        <button onclick="myFunction()">Switch mode</button>
+
+                        <script>
+                            function myFunction() {
+                                var element = document.body;
+                                element.classList.toggle("dark");
+                            }
+                        </script>
 {% endblock %}
