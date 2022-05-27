@@ -156,31 +156,31 @@
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+<!-- API Key: AIzaSyCtgS-FuV-qUTOhwUwKfaD7oLW-PyYR0iU -->
 <script src="https://apis.google.com/js/api.js"></script>
 <script>
-function setStartTime(){
-    let year = document.getElementById('startyear').value
-    let month = document.getElementById('startmonth').value
-    let day = document.getElementById('startday').value
-    let hour = document.getElementById('starthour').value
-    let minute = document.getElementById('startminute').value
-    let second = document.getElementById('startsecond').value
-    return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
-}
-function setEndTime(){
-    let year = document.getElementById('endyear').value
-    let month = document.getElementById('endmonth').value
-    let day = document.getElementById('endday').value
-    let hour = document.getElementById('endhour').value
-    let minute = document.getElementById('endminute').value
-    let second = document.getElementById('endsecond').value
-    return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
-}
+    function setStartTime(){
+        let year = document.getElementById('startyear').value
+        let month = document.getElementById('startmonth').value
+        let day = document.getElementById('startday').value
+        let hour = document.getElementById('starthour').value
+        let minute = document.getElementById('startminute').value
+        let second = "00"
+        return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
+    }
+    function setEndTime(){
+        let year = document.getElementById('endyear').value
+        let month = document.getElementById('endmonth').value
+        let day = document.getElementById('endday').value
+        let hour = document.getElementById('endhour').value
+        let minute = document.getElementById('endminute').value
+        let second = "00"
+        return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
+    }
     // Refer to the JavaScript quickstart on how to setup the environment:
     // https://developers.google.com/calendar/quickstart/js
     // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
     // stored credentials.
-
 
 
     /**
@@ -192,43 +192,55 @@ function setEndTime(){
     function authenticate() {
         return gapi.auth2.getAuthInstance()
             .signIn({scope: "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/calendar.events"})
-            .then(function() { console.log("Sign-in successful"); },
-                function(err) { console.error("Error signing in", err); });
+            .then(function () {
+                    console.log("Sign-in successful");
+                },
+                function (err) {
+                    console.error("Error signing in", err);
+                });
     }
+
     function loadClient() {
         gapi.client.setApiKey("AIzaSyCtgS-FuV-qUTOhwUwKfaD7oLW-PyYR0iU");
         return gapi.client.load("https://content.googleapis.com/discovery/v1/apis/calendar/v3/rest")
-            .then(function() { console.log("GAPI client loaded for API"); },
-                function(err) { console.error("Error loading GAPI client for API", err); });
+            .then(function () {
+                    console.log("GAPI client loaded for API");
+                },
+                function (err) {
+                    console.error("Error loading GAPI client for API", err);
+                });
     }
+
     // Make sure the client is loaded and sign-in is complete before calling this method.
     function execute() {
         return gapi.client.calendar.events.insert({
             "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
             "resource": {
+                "summary": String(document.getElementById('eventName').value),
                 "end": {
-                    "dateTime": "2022-05-28T09:30:00",
+                    "dateTime": setEndTime(),
                     "timeZone": "America/Los_Angeles"
                 },
                 "start": {
-                    "dateTime": "2022-05-28T09:00:00",
+                    "dateTime": setStartTime(),
                     "timeZone": "America/Los_Angeles"
                 }
             }
         })
-            .then(function(response) {
+            .then(function (response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response", response);
                 },
-                function(err) { console.error("Execute error", err); });
+                function (err) {
+                    console.error("Execute error", err);
+                });
     }
-    gapi.load("client:auth2", function() {
+
+    gapi.load("client:auth2", function () {
         gapi.auth2.init({client_id: "893453603783-bpsno84rauqug3u8tsdsq14f85amng83.apps.googleusercontent.com"});
     });
 </script>
-<button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
-
+<button onclick="authenticate().then(loadClient).then(execute)">create event</button>
 
 
 
@@ -256,24 +268,24 @@ var event = {
             {'email': 'sbrin@example.com'}
         ],
         */
-     /*
-        'reminders': {
-            'useDefault': false,
-            'overrides': [
-                {'method': 'email', 'minutes': 24 * 60},
-                {'method': 'popup', 'minutes': 10}
-            ]
-        }
-    };
+    /*
+       'reminders': {
+           'useDefault': false,
+           'overrides': [
+               {'method': 'email', 'minutes': 24 * 60},
+               {'method': 'popup', 'minutes': 10}
+           ]
+       }
+   };
 
-    var request = gapi.client.calendar.events.insert({
-        'calendarId': 'primary',
-        'resource': event
-    });
+   var request = gapi.client.calendar.events.insert({
+       'calendarId': 'primary',
+       'resource': event
+   });
 
-    request.execute(function(event) {
-        appendPre('Event created: ' + event.htmlLink);
-    });
+   request.execute(function(event) {
+       appendPre('Event created: ' + event.htmlLink);
+   });
 function addEvent(){
 
 }
