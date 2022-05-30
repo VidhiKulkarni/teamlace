@@ -80,11 +80,11 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td><input type="text" name="name" id="name" required></td>
-                                <td><input type="text" name="role" id="role" required></td>
-                                <td><input type="number" name="grade" id="grade" required></td>
-                                <td><input type="email" name="email" id="email"></td>
-                                <td><input type="password" name="password" id="password"></td>
+                                <td><input class="form-control" type="text" name="name" id="name" required></td>
+                                <td><input class="form-control" type="text" name="role" id="role" required></td>
+                                <td><input class="form-control" type="number" name="grade" id="grade" required></td>
+                                <td><input class="form-control" type="email" name="email" id="email"></td>
+                                <td><input class="form-control" type="password" name="password" id="password"></td>
                                 <td><input class="btn btn-secondary" type="submit" value="Create"></td>
                             </tr>
                             </tbody>
@@ -102,16 +102,16 @@
                                     <tr><th><label for="read_userid">ID</label></th></tr>
                                     <tr>
                                         <td>
-                                            <select name="userid" id="read_userid">
-                                                <optgroup label="userid">
+                                            <select name="userid" id="read_userid" class="form-control">
+                                                <optgroup label="userid" class="form-control">
                                                     {% for row in table %}
-                                                        <option label="{{ row['userID'] }}">{{ row['userID'] }}</option>
+                                                        <option label="{{ row['userID'] }}" class="form-control">{{ row['userID'] }}</option>
                                                     {% endfor %}
                                                 </optgroup>
                                             </select>
                                         </td>
                                         <td>
-                                            <input class="btn btn-secondary" type="submit" value="Read">
+                                            <input class="btn btn-secondary form-control" type="submit" value="Read">
                                         </td>
                                     </tr>
                                 </table>
@@ -130,15 +130,15 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <select name="userid" id="update_userid">
-                                                <optgroup label="userid">
+                                            <select name="userid" id="update_userid" class="form-control">
+                                                <optgroup label="userid" class="form-control">
                                                     {% for row in table %}
-                                                        <option label="{{ row['userID'] }}">{{ row['userID'] }}</option>
+                                                        <option label="{{ row['userID'] }}" class="form-control">{{ row['userID'] }}</option>
                                                     {% endfor %}
                                                 </optgroup>
                                             </select>
                                         </td>
-                                        <td><input type="text" name="name" id="update_name" required></td>
+                                        <td><input class="form-control" type="text" name="name" id="update_name" required></td>
                                         <td><input class="btn btn-secondary" type="submit" value="Update"></td>
                                     </tr>
                                 </table>
@@ -154,10 +154,10 @@
                                     <tr><th><label for="delete_userid">ID</label></th></tr>
                                     <tr>
                                         <td>
-                                            <select name="userid" id="delete_userid">
-                                                <optgroup label="userid">
+                                            <select name="userid" id="delete_userid" class="form-control">
+                                                <optgroup label="userid" class="form-control">>
                                                     {% for row in table %}
-                                                        <option label="{{ row['userID'] }}">{{ row['userID'] }}</option>
+                                                        <option label="{{ row['userID'] }}" class="form-control">{{ row['userID'] }}</option>
                                                     {% endfor %}
                                                 </optgroup>
                                             </select>
