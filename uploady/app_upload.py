@@ -7,11 +7,11 @@ from werkzeug.utils import secure_filename
 from cruddy.query import user_by_id
 
 # blueprint defaults https://flask.palletsprojects.com/en/2.0.x/api/#blueprint-objects
-app_content = Blueprint('content', __name__,
-                        url_prefix='/content',
-                        template_folder='templates/contenty/',
-                        static_folder='static',
-                        static_url_path='static')
+app_upload = Blueprint('upload', __name__,
+                       url_prefix='/upload',
+                       template_folder='templates/uploady/',
+                       static_folder='static',
+                       static_url_path='static')
 
 ''' 
 Objective of the ideas started with this page is to manage uploading content to a Web Site
@@ -49,35 +49,47 @@ Hack #3 establish a strategy to manage data being stored through Amazon S3 bucke
 files_uploaded = []
 
 
+def upload_save(file_object):
+    # set path to location defined in __init__.py
+    path = app.config['UPLOAD_FOLDER']
+    if not os.path.exists(path):
+        # Create a new directory because it does not exist
+        os.makedirs(path)
+
+    # secure_filename checks for integrity of filename, avoids hacking
+    filename = secure_filename(file_object.filename)
+    # os.path.join adds path for uploads
+    upload_location = os.path.join(path, filename)
+    # save file object to upload location
+    file_object.save(upload_location)
+    return filename
+
+
 # Page to upload content page
-@app_content.route('/')
-# @login_required
-def content():
+@app_upload.route('/')
+@login_required
+def upload():
     # grab user object (uo) based on current login
-    # uo = user_by_id(current_user.userID)
-    # user = uo.read()  # extract user record (Dictionary)
+    uo = user_by_id(current_user.userID)
+    user = uo.read()  # extract user record (Dictionary)
     # load content page
-    # return render_template('gallery.html', user=user, files=files_uploaded)
-    return render_template('gallery.html', files=files_uploaded)
+    return render_template('upload.html', user=user, files=files_uploaded)
 
 
 # Notes create/add
-@app_content.route('/upload/', methods=["POST"])
+@app_upload.route('/upload/', methods=["POST"])
 @login_required
-def upload():
+def uploader():
     try:
         # grab file object (fo) from user input The fo variable holds the submitted file object. This is an instance
         # of class FileStorage, which Flask imports from Werkzeug.
         fo = request.files['filename']
-        # save file to location defined in __init__.py ... os.path uses os specific pathing for web server ...
-        # secure_filename checks for integrity of name for operating system. Pass it a filename and it will return a
-        # secure version of it.
+        filename = upload_save(fo)
 
-        fo.save(os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(fo.filename)))
-        # ... add to files_uploaded to give feedback of success on HTML page
-        files_uploaded.insert(0, url_for('static', filename='uploads/' + fo.filename))
+        # inserts location of object to feedback list
+        files_uploaded.insert(0, url_for('uploads_endpoint', name=filename))
     except:
         # errors handled, but specific errors are not messaged to user
         pass
     # reload content page
-    return redirect(url_for('content.content'))
+    return redirect(url_for('upload.upload'))

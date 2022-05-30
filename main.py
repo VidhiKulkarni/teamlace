@@ -1,13 +1,15 @@
-from flask import render_template
+from flask import render_template, send_from_directory
 from __init__ import app
 
 from cruddy.app_crud import app_crud
 from notey.app_notes import app_notes
 from contenty.app_content import app_content
+from uploady.app_upload import app_upload
 
 app.register_blueprint(app_crud)
 app.register_blueprint(app_notes)
 app.register_blueprint(app_content)
+app.register_blueprint(app_upload)
 
 
 @app.route("/")
@@ -44,6 +46,7 @@ def slides():
 def darkmode():
     return render_template("darkmode.html")
 
+
 @app.route("/practicequiz")
 def practicequiz():
     return render_template("practicequiz.html")
@@ -58,6 +61,17 @@ def GCAPITHF():
 def contact():
     return render_template("contact.html")
 
+
+# serve uploaded files so they can be downloaded by users.
+@app.route('/uploads/<name>')
+def uploads_endpoint(name):
+    return send_from_directory(app.config["UPLOAD_FOLDER"], name)
+
+
+# register "uploads_endpoint" endpoint so url_for will find all uploaded files
+app.add_url_rule(
+    "/" + app.config['UPLOAD_FOLDER'] + "/<name>", endpoint="uploads_endpoint", build_only=True
+)
 
 if __name__ == "__main__":
     app.run(debug=True)

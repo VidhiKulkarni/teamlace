@@ -18,7 +18,7 @@
                 <h2>Notes for {{ user.name }}</h2>
                 <hr>
                 <!--Notes output area, Jinja lines iterate through notes,
-                    note.note is html converted from markdown -->
+                note.note is html converted from markdown -->
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>
@@ -44,8 +44,8 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><textarea rows = "5" cols = "100%" name = "notes" id="notes" required></textarea></td>
-                            <td><input class="btn btn-secondary" type="submit" value="Add" ></td>
+                            <td><textarea class="form-control" rows = "5" cols = "100%" name = "notes" id="notes" required></textarea></td>
+                            <td><input class="btn btn-secondary" type="submit" value="Add"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -66,15 +66,15 @@
                         <tbody>
                         <tr>
                             <td>
-                                <select name="noteid" id="update_noteid">
-                                    <optgroup label="Note ID">
+                                <select name="noteid" id="update_noteid" class="form-control">
+                                    <optgroup label="Note ID" class="form-control">
                                         {% for note in notes %}
-                                            <option label="{{ note['id'] }}">{{ note['id'] }}</option>
+                                            <option label="{{ note['id'] }}" class="form-control">{{ note['id'] }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 </select>
                             </td>
-                            <td><textarea rows = "5" cols = "100%" name = "notes" id="update_note" required></textarea></td>
+                            <td><textarea class="form-control" rows = "5" cols = "100%" name = "notes" id="update_note" required></textarea></td>
                             <td><input class="btn btn-secondary" type="submit" value="Update" ></td>
                         </tr>
                         </tbody>
@@ -95,10 +95,10 @@
                         <tbody>
                         <tr>
                             <td>
-                                <select name="noteid" id="delete_noteid">
-                                    <optgroup label="Note ID">
+                                <select name="noteid" id="delete_noteid" class="form-control">
+                                    <optgroup label="Note ID" class="form-control">
                                         {% for note in notes %}
-                                            <option label="{{ note['id'] }}">{{ note['id'] }}</option>
+                                            <option label="{{ note['id'] }}" class="form-control">{{ note['id'] }}</option>
                                         {% endfor %}
                                     </optgroup>
                                 </select>

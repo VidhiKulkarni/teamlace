@@ -11,15 +11,20 @@ These object will be used throughout project.
 
 # Setup of key Flask object (app)
 app = Flask(__name__)
-dbURI = 'sqlite:///model/myDB.db'
-UPLOAD_FOLDER = 'static/uploads/'
 # Setup SQLAlchemy object and properties for the database (db)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+dbURI = 'sqlite:///volumes/myDB.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = dbURI
 app.config['SECRET_KEY'] = 'SECRET_KEY'
 db = SQLAlchemy(app)
 Migrate(app, db)
+
 # Setup LoginManager object (app)
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+# Setup custom application variables
+app.config['NEXT_PAGE'] = None  # next page on login attempt
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1024 * 1024  # maximum size of uploaded content
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.gif']  # supported file types
+app.config['UPLOAD_FOLDER'] = 'volumes/uploads/'  # location of user uploaded content

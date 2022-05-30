@@ -21,7 +21,8 @@ class Notes(db.Model):
     userID = db.Column(db.Integer, db.ForeignKey('users.userID'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, note, userID):
+    def __init__(self, id, note, userID):
+        self.id = id
         self.note = note
         self.userID = userID
         # self.image = image
