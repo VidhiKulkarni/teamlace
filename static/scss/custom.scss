@@ -42,8 +42,15 @@ $theme-colors: (
 */
 
 // redefine colors
+
+// outer
 $primary: #4A9BAB;
+// inner
 $secondary: #CBEBF1;
+// background
+$body-bg: white;
+// font
+$info: black;
 
 // navbar color
 $warning: #b9ebed;
@@ -51,6 +58,52 @@ $warning: #b9ebed;
 // redefine body background
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 
+// setup default background
+html, body{
+  background-color: var(--bs-body-bg);
+}
+
 * {
  font-family: 'Arvo', serif;
+ color: var(--bs-info)
 }
+
+// setup dark mode styling
+  .dark-mode {
+
+   /* redefine theme colors */
+   $primary: #80ff80;
+   $body-bg:  #1a1a1a;
+   $light: 	#0d3300;
+   $secondary:  #72c274;
+   $info: #fdfdfd;
+   // navbar color
+   $warning: #666666;
+
+    /* set background values */
+    --#{$variable-prefix}body-bg: #{$body-bg};
+
+    --#{$variable-prefix}info: #{$info};
+
+   $theme-colors: (
+           "primary": $primary,
+           "secondary": $secondary,
+           "warning": $warning,
+           "info": $info,
+           "light": $light,
+   );
+
+    /* redefine theme color variables */
+    @each $color, $value in $theme-colors {
+      --#{$variable-prefix}#{$color}: #{$value};
+    }
+    /* redefine theme theme-colors-rgb variables */
+    $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+    @each $color, $value in $theme-colors-rgb {
+      --#{$variable-prefix}#{$color}-rgb: #{$value};
+    }
+
+
+   @import "../../../../node_modules/bootstrap/scss/bootstrap";
+  }
+
