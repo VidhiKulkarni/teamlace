@@ -9,44 +9,54 @@ inspiration from https://www.youtube.com/watch?v=QKcVjdLEX_s
 {% endblock %}
 
 {% block content %}
-    <div class="container py-4 bg-primary rounded-3">
-        <!-- heading -->
-        <header class="pb-3 mb-4 border-bottom">
-            <a href="#" class="d-flex align-items-center text-light text-decoration-none">
-                <span class="fs-4">Search Member Database</span>
-            </a>
+
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom border-primary text-dark">
+            <span class="fs-4">Club Members</span>
         </header>
-        <!-- search box -->
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="mb-3">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="term" placeholder="enter search term">
-                            <label></label> <!-- used for spacer -->
+    </div>
+
+    <div class="container py-4 bg-primary rounded-3">
+        <div class="container py-4 bg-secondary rounded-3">
+            <div class="container py-4 mb-4 bg-light rounded-3">
+                <!-- heading -->
+                <header class="p-3 mb-4">
+                    <a href="#" class="d-flex align-items-center text-light text-decoration-none">
+                        <span class="fs-4">Search Member Database</span>
+                    </a>
+                </header>
+                <!-- search box -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="term" placeholder="Enter search term">
+                                    <label></label> <!-- used for spacer -->
+                                </div>
+                                <button class="btn btn-secondary" onclick="search_data();">Search</button>
+                            </div>
                         </div>
-                        <button class="btn btn-primary bg-secondary" onclick="search_data();">Search</button>
+                    </div>
+
+                <!-- result of search -->
+                    <div class="row">
+                        <div class="col-sm" style="font-weight: bold">
+                            Name
+                        </div>
+                        <div class="col-sm" style="font-weight: bold">
+                            Role
+                        </div>
+                        <div class="col-sm" style="font-weight: bold">
+                            Grade
+                        </div>
+                        <div class="col-sm" style="font-weight: bold">
+                            Email
+                        </div>
+                        <div id="result">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- result of search -->
-    <div class="container py-4 bg-secondary rounded-3">
-        <div class="row">
-            <div class="col-sm" style="font-weight: bold">
-                Name
-            </div>
-            <div class="col-sm" style="font-weight: bold">
-                Role
-            </div>
-            <div class="col-sm" style="font-weight: bold">
-                Grade
-            </div>
-            <div class="col-sm" style="font-weight: bold">
-                Email
-            </div>
-            <div id="result">
             </div>
         </div>
     </div>
