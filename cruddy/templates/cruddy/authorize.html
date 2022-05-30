@@ -20,17 +20,17 @@
                 <form method="POST" ID="authUser" action={{url_for('crud.crud_authorize')}} >
                     <table>
                         <tr><th><label for="user_name">Name</label></th></tr>
-                        <tr><td><input type="text" id='user_name' name="user_name" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="text" id='user_name' name="user_name" size="20" required></td></tr>
                         <tr><th><label for="role">Role</label></th></tr>
-                        <tr><td><input type="text" id='role' name="role" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="text" id='role' name="role" size="20" required></td></tr>
                         <tr><th><label for="grade">Grade</label></th></tr>
-                        <tr><td><input type="number" id='grade' name="grade" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="number" id='grade' name="grade" size="20" required></td></tr>
                         <tr><th><label for="email">Email</label></th></tr>
-                        <tr><td><input type="email" id="email" name="email" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="email" id="email" name="email" size="20" required></td></tr>
                         <tr><th><label for="password1">Password</label></th></tr>
-                        <tr><td><input type="password" id='password1' name="password1" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="password" id='password1' name="password1" size="20" required></td></tr>
                         <tr><th><label for="password2">Password Confirmation</label></th></tr>
-                        <tr><td><input type="password" id='password2' name="password2" size="20" required></td></tr>
+                        <tr><td><input class="form-control" type="password" id='password2' name="password2" size="20" required></td></tr>
                         <tr><th><input class="btn btn-secondary" type="submit" value="Sign Up"></th></tr>
                     </table>
                 </form>

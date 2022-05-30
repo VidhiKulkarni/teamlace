@@ -20,10 +20,10 @@
                 <form method="POST" ID="login" action={{url_for('crud.crud_login')}}>
                     <table>
                         <tr><th><label for="email">Email</label></th></tr>
-                        <tr><td><input type="email" id='email' name="email" size="20" required></td></tr>
+                        <tr><td><input class="form-control"  type="email" id='email' name="email" size="20" required></td></tr>
                         <tr><th><label for="password">Password</label></th></tr>
-                        <tr><td><input type="password" id="password" name="password" size="20" required></td></tr>
-                        <tr><th><input type="submit" value="Login"></th></tr>
+                        <tr><td><input class="form-control" type="password" id="password" name="password" size="20" required></td></tr>
+                        <tr><th><input class="btn btn-secondary" type="submit" value="Login"></th></tr>
                         <tr><td>Need an account? <a href={{url_for('crud.crud_authorize')}}>Sign up here!</a></td></tr>
                     </table>
                 </form>
