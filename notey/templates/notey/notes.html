@@ -23,6 +23,14 @@
                     <table class="table">
                         <tbody>
                         {% for note in notes %}
+                            {% if note.image %}
+                                <tr>
+                                    <td>{{ note.image }}</td>
+                                </tr>
+                                <tr>
+                                    <td><image src="{{ url_for('uploads_endpoint', name=note.image) }}" style="width:150px"></image></td>
+                                </tr>
+                            {% endif %}
                         <tr>
                             <td>{{ note['id'] }}</td>
                             <td>{{ note.note | safe }}</td>
@@ -35,7 +43,7 @@
 
             <div class="p-5 mb-4 bg-light text-dark rounded-3">
                 <!--Notes input form, textarea supports multiple lines of input  -->
-                <form method="POST" ID="create" action={{url_for('notes.create')}}>
+                <form id="note" method="POST" enctype="multipart/form-data" action={{url_for('notes.note_creator')}}>
                     <table class="table">
                         <thead>
                         <tr>
@@ -44,8 +52,11 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><textarea class="form-control" rows = "5" cols = "100%" name = "notes" id="notes" required></textarea></td>
-                            <td><input class="btn btn-secondary" type="submit" value="Add"></td>
+                            <td><input type="file" id="filename" name="filename" /></td>
+                        </tr>
+                        <tr>
+                            <td><textarea rows = "5" cols = "100%" name = "notes" id="notes" required></textarea></td>
+                            <td><input type="submit" value="Add" ></td>
                         </tr>
                         </tbody>
                     </table>

@@ -16,16 +16,15 @@ class Notes(db.Model):
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
     note = db.Column(db.Text, unique=False, nullable=False)
-    # image = db.Column(db.String, unique=False)
+    image = db.Column(db.String, unique=False)
     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
     userID = db.Column(db.Integer, db.ForeignKey('users.userID'))
 
     # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, id, note, userID):
-        self.id = id
-        self.note = note
+    def __init__(self, userID, note, image):
         self.userID = userID
-        # self.image = image
+        self.note = note
+        self.image = image
 
     # Returns a string representation of the Notes object, similar to java toString()
     # returns string
@@ -51,7 +50,7 @@ class Notes(db.Model):
             "id": self.id,
             "note": self.note,
             "userID": self.userID,
-            # "image": self.image
+            "image": self.image
         }
 
     def update(self, note):
