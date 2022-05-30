@@ -41,7 +41,7 @@
                                 <th>Grade</th>
                                 <th>Email</th>
                                 <th>Password</th>
-{#                                <th>Notes</th>#}
+                                <th>Notes</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -54,16 +54,13 @@
                                         <td>{{ row['grade']}}</td>
                                         <td>{{ row['email'] }}</td>
                                         <td>{{ row['password'] | truncate(20) }}</td>
-{#                                        <td><a href="{{ url_for('notes.notes_select', userID=row['userID']) }}">{{ row['notes'] | length }}</a></td>#}
+                                        <td><a href="{{ url_for('notes.notes_select', userID=row['userID']) }}">{{ row['notes'] | length }}</a></td>
                                     </tr>
                                 {% endfor %}
                             </tbody>
                         </table>
                     </div>
                 </div>
-
-
-
 
                 <div class="p-5 mb-4 bg-light text-dark rounded-3">
                     <h2>Add a New Member</h2>
@@ -92,6 +89,42 @@
                     </form>
                 </div>
 
+                <div class="p-5 mb-4 bg-light text-dark rounded-3">
+                    <h2>Update</h2>
+                    <form method="POST" ID="update" action={{url_for('crud.update')}} >
+                        <table class="table" id="update_table">
+                            <thead>
+                            <tr>
+                                <th><label for="update_userid">ID</label></th>
+                                <th><label for="update_name">Name</label></th>
+                                <th><label for="update_role">Role</label></th>
+                                <th><label for="update_grade">Grade</label></th>
+                                <th><label for="update_email">Email</label></th>
+                                <th><label for="update_password">Password</label></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select name="userid" id="update_userid" class="form-control">
+                                            <optgroup label="userid" class="form-control">
+                                                {% for row in table %}
+                                                    <option label="{{ row['userID'] }}" class="form-control">{{ row['userID'] }}</option>
+                                                {% endfor %}
+                                            </optgroup>
+                                        </select>
+                                    </td>
+                                    <td><input class="form-control" type="text" name="name" id="update_name" required></td>
+                                    <td><input class="form-control" type="text" name="role" id="update_role" required></td>
+                                    <td><input class="form-control" type="number" name="grade" id="update_grade" required></td>
+                                    <td><input class="form-control" type="email" name="email" id="update_email" required></td>
+                                    <td><input class="form-control" type="text" name="password" id="update_password" required></td>
+                                    <td><input class="btn btn-secondary" type="submit" value="Update"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
 
                 <div class="row mb-4 bg-light text-dark rounded-3">
                     <div class="col-md-3">
@@ -113,33 +146,6 @@
                                         <td>
                                             <input class="btn btn-secondary form-control" type="submit" value="Read">
                                         </td>
-                                    </tr>
-                                </table>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="p-5 mb-4 bg-light text-dark rounded-3">
-                            <h2>Update</h2>
-                            <form method="POST" ID="update" action={{url_for('crud.update')}} >
-                                <table id="update_table">
-                                    <tr>
-                                        <th><label for="update_userid">ID</label></th>
-                                        <th><label for="update_name">Name</label></th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <select name="userid" id="update_userid" class="form-control">
-                                                <optgroup label="userid" class="form-control">
-                                                    {% for row in table %}
-                                                        <option label="{{ row['userID'] }}" class="form-control">{{ row['userID'] }}</option>
-                                                    {% endfor %}
-                                                </optgroup>
-                                            </select>
-                                        </td>
-                                        <td><input class="form-control" type="text" name="name" id="update_name" required></td>
-                                        <td><input class="btn btn-secondary" type="submit" value="Update"></td>
                                     </tr>
                                 </table>
                             </form>

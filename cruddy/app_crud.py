@@ -26,12 +26,6 @@ def crud():
     return render_template("crud.html", table=users_all())
 
 
-@app_crud.route('/test')
-@login_required
-def test():
-    return render_template("test.html")
-
-
 # Flask-Login directs unauthorised users to this unauthorized_handler
 @login_manager.unauthorized_handler
 def unauthorized():
@@ -113,9 +107,13 @@ def update():
     if request.form:
         userid = request.form.get("userid")
         name = request.form.get("name")
+        role = request.form.get("role")
+        grade = request.form.get("grade")
+        email = request.form.get("email")
+        password = request.form.get("password")
         po = user_by_id(userid)
         if po is not None:
-            po.update(name)
+            po.update(name, role, grade, email, password)
     return redirect(url_for('crud.crud'))
 
 
