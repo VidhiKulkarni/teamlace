@@ -23,7 +23,7 @@
                                     <hr>
                                     <!--Notes input form, textarea supports multiple lines of input  -->
                                     {% if current_user.is_authenticated %}
-                                        <form id="upload" enctype="multipart/form-data" action = "{{ url_for('content.upload') }}" method="POST">
+                                        <form id="upload" enctype="multipart/form-data" action = "{{ url_for('content.uploader') }}" method="POST">
                                             <table class="table">
                                                 <thead>
                                                 <tr>
