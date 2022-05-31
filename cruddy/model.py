@@ -79,7 +79,7 @@ class Users(UserMixin, db.Model):
     name = db.Column(db.String(255), unique=False, nullable=False)
     role = db.Column(db.String(255), unique=False, nullable=False)
     grade = db.Column(db.Integer, unique=False, nullable=False)
-    email = db.Column(db.String(255), unique=True, nullable=False)
+    email = db.Column(db.String(255), unique=False, nullable=False)
     password = db.Column(db.String(255), unique=False, nullable=False)
     # Defines a relationship between User record and Notes table, one-to-many (one user to many notes)
     notes = db.relationship("Notes", cascade='all, delete', backref='users', lazy=True)
