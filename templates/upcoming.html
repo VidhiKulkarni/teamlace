@@ -182,6 +182,7 @@ window.onload = function() {
         let second = "00"
         return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
     }
+    
     // Refer to the JavaScript quickstart on how to setup the environment:
     // https://developers.google.com/calendar/quickstart/js
     // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
@@ -241,23 +242,28 @@ window.onload = function() {
                 });
     }
     function wrigleys() {
-        return gapi.client.calendar.events.delete({
-                "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
-                "eventId":   function getEventID() {
-                    return gapi.client.calendar.events.list({
-                        "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com"
-                    }).then(function(response) {
-                                // Handle the results here (response.result has the parsed body).
-                                return(response.result.items[document.getElementById("deleteWhichEvent").value - 1].id)
-                            }, function(err) { console.error("Execute error", err); });
-                }
-            })
-            .then(function(response) {
-                    // Handle the results here (response.result has the parsed body).
-                    console.log("Response", response);
-                },
-                function(err) { console.error("Execute error", err); });
+         function getEventID() {
+            return gapi.client.calendar.events.list({
+                "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com"
+            }).then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                let eventID = response.result.items[document.getElementById("deleteWhichEvent").value - 1].id
+                return gapi.client.calendar.events.delete({
+                    "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
+                    "eventId": eventID
+                })
+                    .then(function(response) {
+                            // Handle the results here (response.result has the parsed body).
+                            console.log("Response", response);
+                        },
+                        function(err) { console.error("Error in deleting", err); });
+            }, function(err) {
+                console.error("Error in finding the event to delete", err);
+            });
+        }
     }
+
+
     gapi.load("client:auth2", function () {
         gapi.auth2.init({client_id: "893453603783-bpsno84rauqug3u8tsdsq14f85amng83.apps.googleusercontent.com"});
     });
@@ -265,6 +271,10 @@ window.onload = function() {
 <button onclick="authenticate().then(loadClient)">authorize and load</button>
 <script>
     /*
+    =============================================================================
+    STRUCTURING THE EVENT QUERY
+    ============================================================================
+
 var event = {
         'summary': 'Google I/O 2015',
         'location': '800 Howard St., San Francisco, CA 94103',
@@ -305,15 +315,6 @@ var event = {
    request.execute(function(event) {
        appendPre('Event created: ' + event.htmlLink);
    });
-function addEvent(){
-
-}
-function editEvent() {
-
-}
-function deleteEvent() {
-
-}
 */
 
 </script>
