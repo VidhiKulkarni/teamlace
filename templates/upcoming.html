@@ -248,7 +248,7 @@ window.onload = function() {
                         "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com"
                     }).then(function(response) {
                                 // Handle the results here (response.result has the parsed body).
-                                return(response.result.items[document.getElementById("deleteWhichEvent").value].id)
+                                return(response.result.items[document.getElementById("deleteWhichEvent").value - 1].id)
                             }, function(err) { console.error("Execute error", err); });
                 }
             })
@@ -330,8 +330,8 @@ function deleteEvent() {
 <input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
 <br>
 <button onclick="execute()"> Add Event </button>
-<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="wrigleys()"> Delete Event </button>
-<input id="deleteWhichEvent" style="width: 100px; height: auto" placeholder="Delete which event?">
+<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="if(document.getElementById('deleteWhichEvent').value < 1){console.log('please input an integer 1 or above :)')}else{wrigleys()}"> Delete Event </button>
+<input id="deleteWhichEvent" style="width: 150px; height: auto" placeholder="Delete which event?">
 <br>
 <input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
 <input id="eventDesc" hidden style="width: 500px; height: 350px" placeholder="description of event">
