@@ -182,7 +182,7 @@ window.onload = function() {
         let second = "00"
         return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
     }
-    
+
     // Refer to the JavaScript quickstart on how to setup the environment:
     // https://developers.google.com/calendar/quickstart/js
     // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
@@ -331,7 +331,7 @@ var event = {
 <input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
 <br>
 <button onclick="execute()"> Add Event </button>
-<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="if(document.getElementById('deleteWhichEvent').value < 1){console.log('please input an integer 1 or above :)')}else{wrigleys()}"> Delete Event </button>
+<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="if(document.getElementById('deleteWhichEvent').value < 1){console.log('please input an integer 1 or above :)')}else{console.log('Click registered, Wrigley started'); wrigleys()}"> Delete Event </button>
 <input id="deleteWhichEvent" style="width: 150px; height: auto" placeholder="Delete which event?">
 <br>
 <input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
