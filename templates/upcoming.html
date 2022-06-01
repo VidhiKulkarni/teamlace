@@ -13,7 +13,7 @@
 <p>Google Calendar API Quickstart</p>
 
 <!--Add buttons to initiate auth sequence and sign out-->
-<button id="authorize_button" style="height: 0; width: 0" onclick="handleAuthClick()"></button>
+<button id="authorize_button" style="height: 0; width: 0" onclick="handleAuthClick()"> Load Events </button>
 
 <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
@@ -241,7 +241,17 @@ window.onload = function() {
                 });
     }
     function wrigleys() {
-        return gapi.client.calendar.events.delete({})
+        return gapi.client.calendar.events.delete({
+                "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
+                "eventId":   function getEventID() {
+                    return gapi.client.calendar.events.list({
+                        "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com"
+                    }).then(function(response) {
+                                // Handle the results here (response.result has the parsed body).
+                                return(response.result.items[document.getElementById("deleteWhichEvent").value].id)
+                            }, function(err) { console.error("Execute error", err); });
+                }
+            })
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
                     console.log("Response", response);
@@ -253,11 +263,6 @@ window.onload = function() {
     });
 </script>
 <button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
-<button onclick="authenticate().then(loadClient); execute()">authorize and load and execute</button>
-
-
-
 <script>
     /*
 var event = {
@@ -324,7 +329,9 @@ function deleteEvent() {
 <input id="endhour" style="width: 100px; height: auto" placeholder="end hour">
 <input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
 <br>
+<button onclick="execute()"> Add Event </button>
 <button id="deleteEventButton" style="width: 75px; height: 30px" onclick="wrigleys()"> Delete Event </button>
+<input id="deleteWhichEvent" style="width: 100px; height: auto" placeholder="Delete which event?">
 <br>
 <input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
 <input id="eventDesc" hidden style="width: 500px; height: 350px" placeholder="description of event">
