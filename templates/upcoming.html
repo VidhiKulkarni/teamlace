@@ -13,7 +13,7 @@
 <p>Google Calendar API Quickstart</p>
 
 <!--Add buttons to initiate auth sequence and sign out-->
-<button id="authorize_button" style="height: 0; width: 0" onclick="handleAuthClick()"></button>
+<button id="authorize_button" style="height: 0; width: 0" onclick="handleAuthClick()"> Load Events </button>
 
 <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
 
@@ -155,10 +155,9 @@
         document.getElementById('content').innerText = output;
     }
 
-    window.onload = function() {
+window.onload = function() {
         handleAuthClick();
-
-    };
+};
 </script>
 <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
 <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
@@ -183,6 +182,7 @@
         let second = "00"
         return String(year.concat(month).concat(day)) + "T" + String(hour.concat(minute).concat(second))
     }
+
     // Refer to the JavaScript quickstart on how to setup the environment:
     // https://developers.google.com/calendar/quickstart/js
     // Change the scope to 'https://www.googleapis.com/auth/calendar' and delete any
@@ -241,19 +241,40 @@
                     console.error("Execute error", err);
                 });
     }
+    function wrigleys() {
+         function getEventID() {
+            return gapi.client.calendar.events.list({
+                "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com"
+            }).then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                let eventID = response.result.items[document.getElementById("deleteWhichEvent").value - 1].id
+                return gapi.client.calendar.events.delete({
+                    "calendarId": "c3blo90u1m1escub076qk0amjo@group.calendar.google.com",
+                    "eventId": eventID
+                })
+                    .then(function(response) {
+                            // Handle the results here (response.result has the parsed body).
+                            console.log("Response", response);
+                        },
+                        function(err) { console.error("Error in deleting", err); });
+            }, function(err) {
+                console.error("Error in finding the event to delete", err);
+            });
+        }
+    }
+
 
     gapi.load("client:auth2", function () {
         gapi.auth2.init({client_id: "893453603783-bpsno84rauqug3u8tsdsq14f85amng83.apps.googleusercontent.com"});
     });
 </script>
 <button onclick="authenticate().then(loadClient)">authorize and load</button>
-<button onclick="execute()">execute</button>
-<button onclick="authenticate().then(loadClient); execute()">authorize and load and execute</button>
-
-
-
 <script>
     /*
+    =============================================================================
+    STRUCTURING THE EVENT QUERY
+    ============================================================================
+
 var event = {
         'summary': 'Google I/O 2015',
         'location': '800 Howard St., San Francisco, CA 94103',
@@ -294,15 +315,6 @@ var event = {
    request.execute(function(event) {
        appendPre('Event created: ' + event.htmlLink);
    });
-function addEvent(){
-
-}
-function editEvent() {
-
-}
-function deleteEvent() {
-
-}
 */
 
 </script>
@@ -318,8 +330,9 @@ function deleteEvent() {
 <input id="endhour" style="width: 100px; height: auto" placeholder="end hour">
 <input id="endminute" style="width: 100px; height: auto" placeholder="end minute">
 <br>
-<button id="editEventButton" hidden style="width: 75px; height: 30px" onclick="editEvent()"> Edit Event </button>
-<button id="deleteEventButton" hidden style="width: 75px; height: 30px" onclick="deleteEvent()"> Delete Event </button>
+<button onclick="execute()"> Add Event </button>
+<button id="deleteEventButton" style="width: 75px; height: 30px" onclick="if(document.getElementById('deleteWhichEvent').value < 1){console.log('please input an integer 1 or above :)')}else{console.log('Click registered, Wrigley started'); wrigleys()}"> Delete Event </button>
+<input id="deleteWhichEvent" style="width: 150px; height: auto" placeholder="Delete which event?">
 <br>
 <input id="eventName" hidden style="width: 100px; height: auto" placeholder="name of event">
 <input id="eventDesc" hidden style="width: 500px; height: 350px" placeholder="description of event">
